@@ -2,7 +2,6 @@
 
 This API, written in Flask, allows users to perform several actions related to bookmarking links. The following endpoints are available:
 
-This API, written in Flask, allows users to perform several actions related to bookmarking links. The following endpoints are available:
 
 ## Summary
 
