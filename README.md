@@ -2,6 +2,22 @@
 
 This API, written in Flask, allows users to perform several actions related to bookmarking links. The following endpoints are available:
 
+This API, written in Flask, allows users to perform several actions related to bookmarking links. The following endpoints are available:
+
+## Summary
+
+| Endpoint | Method | Description | Output |
+|----------|--------|-------------|--------|
+| `GET /users/<int:id>` | GET | Retrieve information about a specific user | User information |
+| `POST /users` | POST | Create a new user | New user information |
+| `POST /bookmark` | POST | Create a new bookmark | New bookmark information |
+| `GET /bookmarks` | GET | Retrieve a list of all bookmarks for a user | List of bookmark objects |
+| `GET /bookmark/<int:bookmark_id>` | GET | Retrieve information about a specific bookmark | Bookmark information |
+| `POST /tokens` | POST | Request a new token | Token |
+| `DELETE /tokens` | DELETE | Revoke current token | None |
+
+Here are the endpoints described in detail:
+
 ## `GET /users/<int:id>`
 
 This endpoint allows a user to retrieve information about a specific user. The user's ID is passed as a URL parameter. If the user is requesting their own information, the endpoint will return the user's email address in addition to their other information. Otherwise, only the user's name and ID will be returned. This endpoint is protected with token authentication, and can only be accessed by authorized users.
