@@ -7,13 +7,13 @@ This API, written in Flask, allows users to perform several actions related to b
 
 | Endpoint | Method | Description | Output |
 |----------|--------|-------------|--------|
-| `GET /users/<int:id>` | GET | Retrieve information about a specific user | User information |
-| `POST /users` | POST | Create a new user | New user information |
-| `POST /bookmark` | POST | Create a new bookmark | New bookmark information |
-| `GET /bookmarks` | GET | Retrieve a list of all bookmarks for a user | List of bookmark objects |
-| `GET /bookmark/<int:bookmark_id>` | GET | Retrieve information about a specific bookmark | Bookmark information |
-| `POST /tokens` | POST | Request a new token | Token |
-| `DELETE /tokens` | DELETE | Revoke current token | None |
+| `/users/<int:id>` | GET | Retrieve information about a specific user | User information |
+| `/users` | POST | Create a new user | New user information |
+| `/bookmark` | POST | Create a new bookmark | New bookmark information |
+| `/bookmarks` | GET | Retrieve a list of all bookmarks for a user | List of bookmark objects |
+| `/bookmark/<int:bookmark_id>` | GET | Retrieve information about a specific bookmark | Bookmark information |
+| `/tokens` | POST | Request a new token | Token |
+| ` /tokens` | DELETE | Revoke current token | None |
 
 Here are the endpoints described in detail:
 
