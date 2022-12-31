@@ -50,13 +50,13 @@ def create_user():
     data = request.get_json() or {}
     if "email" not in data or "password" not in data:
         return bad_request("must include an email and password")
-    if User.query.filter_by(email=data['email']).first():
+    if User.query.filter_by(email=data["email"]).first():
         return bad_request("Please specify a different email address")
     user = User()
     user.from_dictionary(data, new_user = True)
     db.session.add(user)
     db.session.commit()
-    response = jsonify(user.to_dictionary())
+    response = jsonify(user.to_dictionary(include_email=True))
     response.status_code = 201 
     response.headers['Location'] = url_for('get_user', id = user.id)
     return response
@@ -89,8 +89,6 @@ def get_all_bookmarks():
 @app.route("/bookmark/<int:bookmark_id>", methods = ['GET'])
 @token_auth.login_required
 def get_bookmark(bookmark_id):
-    if token_auth.current_user().bookmarks.count == 0:
-        return bad_request("user has no books")
     try:
         bookmark = token_auth.current_user().bookmarks.filter(Bookmark.id==bookmark_id).one()
         return jsonify(bookmark.to_dictionary())

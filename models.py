@@ -85,9 +85,11 @@ class Bookmark(db.Model):
             "bookmark_url":self.url,
             "bookmark_headline":self.headline,
             "read_flag":self.read_flag,
-            "saved": self.timestamp.isoformat()+'Z'
-            # "_links": {
-            #     "self": url_for("get_bookmark", id=self.id)
+            "saved": self.timestamp.isoformat()+'Z',
+            "_links": {
+                "self": url_for("get_bookmark", bookmark_id=self.id)
+                }
+                 
             }
             
         return data
